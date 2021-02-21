@@ -34,10 +34,33 @@ $ od -c csharp.cs
 
 ## Text set to `auto`
 
+### On Windows
+
 ```
 $ git clone --branch lf https://github.com/Harvzor/gitattributes-tests
 $ od -c bash.sh
+> 0000000   /   /       S   o   m   e  \r  \n   /   /       l   i   n   e
+> 0000020   s  \r  \n   /   /       o   f  \r  \n   /   /       t   e   x
+> 0000040   t   .  \r  \n
+> 0000044
 $ od -c csharp.cs
+>0000000   #       S   o   m   e  \r  \n   #       l   i   n   e   s  \r
+> 0000020  \n   #       o   f  \r  \n   #       t   e   x   t   .  \r  \n
+> 0000040
+```
+
+### On Linux
+
+```
+$ git clone --branch lf https://github.com/Harvzor/gitattributes-tests
+$ od -c bash.sh
+> 0000000   #       S   o   m   e  \n   #       l   i   n   e   s  \n   #
+> 0000020       o   f  \n   #       t   e   x   t   .  \n
+> 0000034
+$ od -c csharp.cs
+> 0000000   /   /       S   o   m   e  \n   /   /       l   i   n   e   s
+> 0000020  \n   /   /       o   f  \n   /   /       t   e   x   t   .  \n
+> 0000040
 ```
 
 ## Text set to `crlf`
